@@ -27,6 +27,8 @@ public class SparkPiApp extends AbstractApplication {
 
   @Override
   public void configure() {
+    setName("PiSpark");
+    setDescription("Spark program to compute PI");
     addSpark(new PiSpark());
 
   }
