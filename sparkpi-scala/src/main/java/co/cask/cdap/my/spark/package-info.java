@@ -13,23 +13,11 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package co.cask.cdap.my.spark;
-
-import co.cask.cdap.api.app.AbstractApplication;
-import co.cask.cdap.api.data.schema.UnsupportedTypeException;
-import co.cask.cdap.api.data.stream.Stream;
-import co.cask.cdap.api.dataset.lib.ObjectStores;
 
 /**
- * A CDAP PageRank application which computes the PageRank of connected URLs.
+ * Package for SparkPageRank Application.
+ *
+ * An Application that demonstrates streaming text analysis using a Spark program.
+ * It computes the page rank of URLs from an input stream.
  */
-public class SparkPiApp extends AbstractApplication {
-
-  @Override
-  public void configure() {
-    setName("PiSparkApp");
-    setDescription("Spark program to compute PI");
-    addSpark(new PiSpark());
-
-  }
-}
+package co.cask.cdap.my.spark;
