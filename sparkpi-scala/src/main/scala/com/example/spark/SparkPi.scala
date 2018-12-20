@@ -1,8 +1,8 @@
 package com.example.spark
 
-import scala.math.random
-
 import org.apache.spark._
+
+import scala.math.random
 
 /** Computes an approximation to pi */
 object SparkPi {
@@ -11,16 +11,18 @@ object SparkPi {
     val spark = new SparkContext(conf)
     println("************************")
     args.foreach(println)
-    val slices = 2
-//    val slices = if (args.length > 0) args(0).toInt else 2
+    var slices = 2
+
+    for (intput_arg <- args if intput_arg.startsWith("--slices=")) slices = intput_arg.split("=").last.toInt
+
+    println("slices: %s".format(slices))
     val n = math.min(100000L * slices, Int.MaxValue).toInt // avoid overflow
     val count = spark.parallelize(1 until n, slices).map { i =>
-        val x = random * 2 - 1
-        val y = random * 2 - 1
-        if (x*x + y*y < 1) 1 else 0
-      }.reduce(_ + _)
-    println("******************* Pi is roughly " + 4.0 * count / (n - 1))
+      val x = random * 2 - 1
+      val y = random * 2 - 1
+      if (x * x + y * y < 1) 1 else 0
+    }.reduce(_ + _)
+    println("******************* Pi is roughly %s".format(4.0 * count / (n - 1)))
     spark.stop()
   }
 }
-// scalastyle:on println
