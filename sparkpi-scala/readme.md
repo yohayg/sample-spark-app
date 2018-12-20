@@ -17,6 +17,6 @@
 ##### Create an application
     create app test sparkpi 1.0.0-SNAPSHOT user
 ##### Run the application:
-    start spark test.PiSpark "slices=10"
+    start spark test.PiSpark "renv=local, fs=/tmp/poc/gs/, master=local"
 ##### You can also run the application using a curl command:
     curl -X POST http://localhost:11015/v3/namespaces/default/apps/test/versions/-SNAPSHOT/spark/PiSpark/start -d '{"slices": "10"}'
