@@ -12,6 +12,15 @@
     <cdap.version>5.1.0</cdap.version>
     <app.main.class>co.cask.cdap.my.spark.SparkPiApp</app.main.class>
   </properties>
+
+  <!--<repositories>-->
+    <!--<repository>-->
+      <!--<id>my-local-repo</id>-->
+      <!--<url>file://${basedir}/lib</url>-->
+    <!--</repository>-->
+  <!--</repositories>-->
+
+
   <dependencies>
     <dependency>
       <groupId>org.apache.spark</groupId>
@@ -24,6 +33,12 @@
       <artifactId>cdap-api</artifactId>
       <version>${cdap.version}</version>
       <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.marketo</groupId>
+      <artifactId>spark-streaming-kafka</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 
@@ -77,9 +92,10 @@
             </manifest>
           </archive>
           <instructions>
-            <Embed-Dependency>*;inline=false;scope=compile</Embed-Dependency>
+            <Embed-Dependency>*;inline=false;scope=system|compile</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
             <Embed-Directory>lib</Embed-Directory>
+            <_exportcontent>*</_exportcontent>
           </instructions>
         </configuration>
         <executions>
