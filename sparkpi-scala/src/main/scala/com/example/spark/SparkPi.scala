@@ -11,7 +11,7 @@ object SparkPi {
 //    val conf = new SparkConf().setAppName("Spark Pi")
 //    val spark = new SparkContext(conf)
 //    println("************************")
-//    args.foreach(println)
+    args.foreach(println)
 //    var slices = 2
 //
 //    for (intput_arg <- args if intput_arg.startsWith("--slices=")) slices = intput_arg.split("=").last.toInt
@@ -26,8 +26,8 @@ object SparkPi {
 //    println("******************* Pi is roughly %s".format(4.0 * count / (n - 1)))
 //    spark.stop()
 
-    val args1 = "-r local --fs /tmp/poc/gs/ --master local".split(" ")
-    DataLakeLeadActivityProcessor.main(args1)
-    PipelineGateway.main(args1)
+//    val args1 = "--renv local --fs /tmp/poc/gs/ --master local".split(" ")
+//    DataLakeLeadActivityProcessor.main(args1)
+    PipelineGateway.main(args)
   }
 }

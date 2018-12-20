@@ -19,6 +19,7 @@ package co.cask.cdap.my.spark;
 import co.cask.cdap.api.spark.AbstractSpark;
 import co.cask.cdap.api.spark.Spark;
 import com.example.spark.SparkPi;
+import com.marketo.datalake.PipelineGateway;
 
 /**
  * Class for Spark program Specification
@@ -32,6 +33,6 @@ public class PiSpark extends AbstractSpark {
   public void configure() {
     setName("PiSpark");
     setDescription("Spark program to compute PI");
-    setMainClass(SparkPi.class);
+    setMainClass(PipelineGateway.class);
   }
 }
