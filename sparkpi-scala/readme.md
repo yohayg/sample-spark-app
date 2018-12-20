@@ -2,3 +2,4 @@
 2. `load artifact sparkpi-1.0.0-SNAPSHOT.jar`
 3. `create app test sparkpi 1.0.0-SNAPSHOT user`
 4. `start spark test.PiSpark`
+5. `curl -X POST http://localhost:11015/v3/namespaces/default/apps/test/versions/-SNAPSHOT/spark/PiSpark/start -d '{"rr": "1"}'`
