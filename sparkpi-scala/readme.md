@@ -1,6 +1,6 @@
 # How to use this repository
 
-##### Start CDAP useing docker:
+##### Start CDAP using docker:
     docker run -it --name cdap-sandbox-5.1.0 -p 11011:11011 -p 11015:11015 -p 5005:5005 caskdata/cdap-sandbox:5.1.0 cdap sandbox start --enable-debug --foreground
 ##### Build the project:
     mvn clean install
